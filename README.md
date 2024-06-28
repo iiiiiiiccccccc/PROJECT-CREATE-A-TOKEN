@@ -6,12 +6,13 @@ This program creates MyToken, a simple smart contract for a digital currency on 
 
 # GETING STARTED
 EXECUTING THE PROGRAM
+
 To execute this program, use Remix, an online Solidity IDE. Visit [Remix](https://remix.ethereum.org/). Once there, click the "+" symbol in the left-hand sidebar to create a new file. Save the file as HelloWorld.sol. Copy and paste the code below into the file.
 
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
-
-contract MyToken {
+    // SPDX-License-Identifier: MIT
+    pragma solidity 0.8.18;
+    
+    contract MyToken {
 
     // public variables here
     string public tokenName = "META";
@@ -35,9 +36,10 @@ contract MyToken {
         }
         
     }
-}
 
 To compile the code, select the "Solidity Compiler" tab from the left sidebar. Set the "Compiler" option to "0.8.18" (or a suitable version). To deploy the contract, go to the "Deploy & Run Transactions" tab. Choose the name of contract from the dropdown menu and click "Deploy". To interact with the contract, click the name of the contract in the left-hand sidebar, then click the name of the function. Finally, click "transact" to get the message.
 
 # AUTHORS
-Metacrafter Student Ivanne Cres Yabut @cres_ssant
+Metacrafter Student Ivanne Cres Yabut https://x.com/ivanne_cres
+# LICENSE 
+This project is licensed under the Ivanne Cres Yabut License - see the LICENSE.md file for details
