@@ -1,32 +1,43 @@
 # PROJECT-CREATE-A-TOKEN
-The MyToken contract is a simple implementation of a token on the Ethereum blockchain following ERC-20 standards. 
+This Solidity program showcases key programming concepts such as variable declaration, mappings, functions, and conditional expressions. It demonstrates my foundational skills in blockchain development, acquired from Metacrafters' fundamental Ethereum course, by implementing a simple Token system.
 
-PURPOSE: The contract aims to create a basic ERC-20 compatible token with functionalities for minting and burning tokens. Developers can use this contract as a foundation to deploy their own custom tokens on the Ethereum network.
+# DESCRIPTION
+This program creates MyToken, a simple smart contract for a digital currency on the Ethereum network. It defines the token's name, abbreviation, and total supply, all of which are public. It uses a mapping to track balances for each address, ensuring accurate transactions. The contract includes two main functions: mint and burn. The mint function adds tokens to a given address, increasing both the total supply and the address's balance. The burn function removes tokens from an address, decreasing both the total supply and the address's balance, with safeguards to prevent burning more tokens than are available.
 
-FUNCTIONALITY:
-1. Token Details:
-* Token Name: META
-* Token Abbreviation: MTA
-* Total Supply: Initially set to 0 and will increase as tokens are minted.
+# GETING STARTED
+EXECUTING THE PROGRAM
+To execute this program, use Remix, an online Solidity IDE. Visit [Remix](https://remix.ethereum.org/). Once there, click the "+" symbol in the left-hand sidebar to create a new file. Save the file as HelloWorld.sol. Copy and paste the code below into the file.
 
-2. Mapping of Balances:
-* The contract maintains a mapping of Ethereum addresses to token balances (mapping(address => uint) public balances), allowing it to track how many tokens each address holds.
-  
-3. Mint Function ('mint'):
-* Parameters: Takes an address (addr) and a value (value).
-* Functionality: Increases the total token supply by value and adds value tokens to the balance of the specified address (addr).
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
 
-4. Burn Function (burn):
-* Parameters: Takes an address (addr) and a value (value).
-* \Functionality: Reduces the total token supply by value and subtracts value tokens from the balance of the specified address (addr).
-* Conditions: Checks if the address (addr) has enough tokens to burn (balances[addr] >= value). If not, the burn operation fails.
+contract MyToken {
 
-USAGE: 
-* Developers can deploy this contract to create their own ERC-20 token.
-* Use the mint function to issue new tokens to specific addresses.
-* Use the burn function to reduce the token supply by destroying tokens held by specific addresses, ensuring the balance check prevents burning more tokens than are owned.
+    // public variables here
+    string public tokenName = "META";
+    string public tokenAbbrv = "MTA";
+    uint public totalSupply = 0;
 
-ADDITIONAL CONSIDERATIONS: 
-* Security: Developers should implement additional security measures like access control and possibly a pause mechanism (Pausable contract) to manage token issuance and burning securely.
-* ERC-20 Compliance: While this contract provides basic functionality, developers may need to extend it to fully comply with ERC-20 standards if planning for broader token interoperability.
+    // mapping variable here
+    mapping(address => uint) public balances;
 
+    // mint function
+    function mint(address addr, uint value) public{
+        totalSupply += value;
+        balances[addr] += value;
+    }
+
+    // burn function
+    function burn(address addr, uint value) public{
+        if(balances[addr] >= value){
+            totalSupply -= value;
+        balances[addr] -= value;
+        }
+        
+    }
+}
+
+To compile the code, select the "Solidity Compiler" tab from the left sidebar. Set the "Compiler" option to "0.8.18" (or a suitable version). To deploy the contract, go to the "Deploy & Run Transactions" tab. Choose the name of contract from the dropdown menu and click "Deploy". To interact with the contract, click the name of the contract in the left-hand sidebar, then click the name of the function. Finally, click "transact" to get the message.
+
+# AUTHORS
+Metacrafter Student Ivanne Cres Yabut @cres_ssant
